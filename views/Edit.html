@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+
+    <link rel="stylesheet" href="../css/Main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/ef05b67ed3.js"></script>
+    <!--Datatable-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container-fluid head">
+        <div class="arrow-down">
+            <div class="col-12 img-logo">
+                <img src="../Image/lion.png" alt="">
+            </div>
+        </div>
+
+    </div>
+    <div class="container-fluid ">
+        <nav class="navbar navbar-expand-sm bg-light nav-bar">
+            <ul class="nav justify-content-center ">
+                <li class="nav-item active ">
+                    <a class="nav-link " href="/index"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# "><i class="fa fa-align-justify"></i> Thống kê</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="/"><i class="fa fa-sign-out"></i> Log out</a>
+                </li>
+
+            </ul>
+        </nav>
+        <div class="col-sm-12 main-section ">
+            <div class="content">
+                <h1 class="tieude">Quản Lý sản phẩm</h1>
+                <div class="modal-content">
+
+
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form action="/edit" method="POST" autocomplete="off">
+                            <input type="hidden" name="_id" value="{{product._id}}" />
+                            <div class="form-group">
+                                <label for="TenSP">Tên sản phẩm:</label>
+                                <input type="text" class="form-control" id="name"
+                                    placeholder="Nhập tên sản phẩm ......." name="name" value="{{product.name}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="Price">Giá sản phẩm:</label>
+                                <input type="text" class="form-control" id="price"
+                                    placeholder="Nhập giá sản phẩm ......." name="price" value="{{product.price}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Hình ảnh:</label>
+
+                                <input type='file' class="form-control" id="image" name="image"
+                                    onchange="{{product.image}}">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="motaSP">Mô tả:</label>
+                                <input class="form-control" id="description" name="description"
+                                    value="{{product.description}}"></input>
+                            </div>
+                            <div class=" modal-footer">
+                                <button type="button" class="btn btn-danger"><a href="/index"
+                                        style="color:white;text-decoration: none;">Hủy</a></button>
+                                <button type="submit" class="btn btn-primary">Cập nhật</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Modal footer -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+
+</html>

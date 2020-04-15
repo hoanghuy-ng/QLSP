@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/Login.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/ef05b67ed3.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container-fluid head">
+        <div class="arrow-down">
+            <div class="col-12 img-logo">
+                <img src="../Image/lion.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="modal-dialog text-center">
+            <div class="col-sm-12 main-section">
+                <div class="modal-content">
+                    <div class="col-12 user-img">
+                        <h1>Đăng nhập</h1>
+                    </div>
+                    <form class="col-12" action="/Login" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Nhập email" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Nhập mật khẩu" id="password"
+                                name="password">
+                        </div>
+
+                        <button type="submit" class="btn-outline-warning btn"
+                            style="margin-bottom: 50px; margin-top: 50px;"><i class="fa fa-sign-in"
+                                aria-hidden="true"></i> Đăng nhập</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
