@@ -64,7 +64,20 @@ router.post('/upload', upload.single('image'), (request, response) => {
         }
     });
 });
+router.post('/edit', upload.single('imageEdit'), (request, response) => {
+    product.updateOne(
 
+        { _id: request.body._id },
+        { $set: { name: request.body.name, price: request.body.price, image: request.file.originalname, description: request.body.description } },
+        (err, doc) => {
+            if (!err) {
+                response.redirect('/index');
+            } else {
+                console.log('Edit Failed');
+            }
+        }
+    );
+});
 //cấu hình Passport
 router.use(
     session({
@@ -154,7 +167,8 @@ router.get('/index', isAuthenticated, productController.getAll);
 //get Watch
 router.get('/edit/:id', productController.getproduct);
 //edit
-router.post('/edit', isAuthenticated, productController.edit);
+// router.post('/edit', isAuthenticated, productController.edit);
+
 //delete
 router.get('/delete/:id', isAuthenticated, productController.delete);
 

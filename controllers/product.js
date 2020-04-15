@@ -1,5 +1,4 @@
 const product = require('../models/product');
-
 //get tất cả sản phẩm
 exports.getAll = function (request, response) {
     product.find({})
@@ -24,8 +23,11 @@ exports.getproduct = function (request, response) {
         });
 };
 //chỉnh sửa
+
 exports.edit = function (request, response) {
+    // routes.upload.single('image');
     product.updateOne(
+
         { _id: request.body._id },
         { $set: { name: request.body.name, price: request.body.price, image: request.body.image, description: request.body.description } },
         (err, doc) => {

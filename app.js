@@ -88,7 +88,7 @@ io.sockets.on('connection', function (socket) {
             }
         });
     });
-    socket.on('insertproduct', upload.single('image'), function (name, price, description, image) {
+    socket.on('insertproduct', upload.single('imageinsertapp'), function (name, price, description, image) {
         var product = { name: name, price: price, description: description, image: originalname };
         collection_product.save(product, function (err, result) {
             if (err) {
@@ -133,7 +133,7 @@ mongoose.connect(
     }
 );
 
-cấu hình handlebars
+// cấu hình handlebars
 const expressHbs = require('express-handlebars');
 app.engine(
     '.html',

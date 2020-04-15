@@ -45,13 +45,21 @@
         <div class="col-sm-12 main-section ">
             <div class="content">
                 <h1 class="tieude">Quản Lý sản phẩm</h1>
-                <div class="modal-content">
+                <div class="modal-content" style="flex-direction: row; align-items: center;margin: 0 auto;">
+                    <div class="col-5 modal-body">
+                        <img src="http://localhost:4100/{{product.image}}" alt="" width="600xp" height="380px"
+                            name="image">
 
-
-
+                    </div>
                     <!-- Modal body -->
-                    <div class="modal-body">
-                        <form action="/edit" method="POST" autocomplete="off">
+                    <div class="col-5 modal-body">
+                        <form action="/edit" method="POST" autocomplete="off" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="Image">Hình ảnh:</label>
+
+                                <input type='file' class="form-control" id="image" name="imageEdit" />
+
+                            </div>
                             <input type="hidden" name="_id" value="{{product._id}}" />
                             <div class="form-group">
                                 <label for="TenSP">Tên sản phẩm:</label>
@@ -63,13 +71,7 @@
                                 <input type="text" class="form-control" id="price"
                                     placeholder="Nhập giá sản phẩm ......." name="price" value="{{product.price}}">
                             </div>
-                            <div class="form-group">
-                                <label for="image">Hình ảnh:</label>
 
-                                <input type='file' class="form-control" id="image" name="image"
-                                    onchange="{{product.image}}">
-
-                            </div>
                             <div class="form-group">
                                 <label for="motaSP">Mô tả:</label>
                                 <input class="form-control" id="description" name="description"
