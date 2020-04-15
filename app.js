@@ -133,12 +133,12 @@ mongoose.connect(
     }
 );
 
-//cấu hình handlebars
-// const expressHbs = require('express-handlebars');
-// app.engine(
-//     '.html',
-//     expressHbs({
-//         defaultLayout: '',
-//     })
-// );
-// app.set('view engine', '.html');
+cấu hình handlebars
+const expressHbs = require('express-handlebars');
+app.engine(
+    '.html',
+    expressHbs({
+        defaultLayout: '',
+    })
+);
+app.set('view engine', '.html');
