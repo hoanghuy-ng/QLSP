@@ -88,15 +88,15 @@ io.sockets.on('connection', function (socket) {
             }
         });
     });
-    socket.on('insertproduct', upload.single('imageinsertapp'), function (name, price, description, image) {
-        var product = { name: name, price: price, description: description, image: originalname };
+    socket.on('insertProduct', function (name, price, description, image) {
+        var product = { name: name, price: price, description: description, image: image };
         collection_product.save(product, function (err, result) {
             if (err) {
                 console.log("wwww" + err);
-                socket.emit('insertproduct', false);
+                socket.emit('insertProduct', false);
             } else {
                 console.log('ok');
-                socket.emit('insertproduct', true);
+                socket.emit('insertProduct', true);
             }
         });
     });
