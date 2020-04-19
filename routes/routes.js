@@ -36,7 +36,7 @@ const upload = multer({
     //kiểm tra file upload có phải là hình ảnh hay không
     fileFilter: function (req, file, callback) {
         var ext = path.extname(file.originalname);
-        if (ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
+        if (ext !== '.PNG' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
             return callback(new Error('Only images are allowed'));
         }
         callback(null, true);
@@ -45,6 +45,7 @@ const upload = multer({
         fileSize: 1024 * 1024 * 5,//giới hạn filesize = 5Mb
     },
 });
+
 //phương thức upload file + insert dư liệu vào mongoDB
 router.post('/upload', upload.single('image'), (request, response) => {
     let Product = new product({
