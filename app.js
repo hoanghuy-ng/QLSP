@@ -119,6 +119,35 @@ io.sockets.on('connection', function (socket) {
             }
         });
     });
+    socket.on('updateProduct', function (_id, name, price, description, image) {
+        console.log(name + " update ")
+
+
+        collection_product.update({ _id: new mongodb.ObjectID(_id) },
+            { $set: { name: name, price: price, description: description, image: fileimage } }, function (err, result) {
+                if (err) {
+                    console.log("wwww" + err);
+                    socket.emit('updateProduct', false);
+                } else {
+                    console.log('ok');
+                    socket.emit('updateProduct', true);
+                }
+            });
+    });
+    socket.on('deleteProduct', function (_id) {
+        console.log(_id + " update ")
+
+        const id = { _id: new mongodb.ObjectID(_id) };
+        collection_product.remove(id, function (err, result) {
+            if (err) {
+                console.log("wwww" + err);
+                socket.emit('deleteProduct', false);
+            } else {
+                console.log('ok');
+                socket.emit('deleteProduct', true);
+            }
+        });
+    });
     socket.on('getProduct', function (msg) {
         var cusor = collection_product.find();
         cusor.each(function (err, doc) {
